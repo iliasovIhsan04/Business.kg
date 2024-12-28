@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const StateCarContext = createContext();
 const initialFilterState = {
-region: { id: 1, name: "Чуйская область" },
+region: { id: 1, name: "Чуйская область"},
   mark: { id: 0, name: "Любой" },
   model: { id: 0, name: "Любой" },
   generation: { id: 0, name: "Любой" },
@@ -30,6 +30,7 @@ region: { id: 1, name: "Чуйская область" },
   mileage: "",
   is_urgent: false,
   price: "",
+  price: "",
 };
 const initialFilterStateAdd = {
   car_condition: { id: 0, name: "Любой" },
@@ -37,12 +38,13 @@ const initialFilterStateAdd = {
   currency: { id: 0, name: "Любой" },
   color: { id: 0, name: "Любой" },
   exchange: { id: 0, name: "Любой" },
-  registration_country: { id: 0, name: "Любой" },
+  registration_country: { id: 0, name: "Любой"},
   comment_allowed: { id: 0, name: "Любой" },
   featured_option: { id: 0, name: "Любой" },
   region: { id: 1, name: "Чуйская область" },
   town: { id: 2, name: "Бишкек" },
 };
+
 export const StateCarProvider = ({ children }) => {
   const [recomention, setRecomention] = useState([]);
   const [reLoading, setReLoading] = useState(true);
@@ -101,13 +103,14 @@ export const StateCarProvider = ({ children }) => {
       console.error(error);
     }
   };
+
   useEffect(() => {
     if (filter.model.id > 0) {
       fetchgeneration();
     }
   }, [filter.model]);
-  console.log(carAdd, "Added ihsan");
 
+  console.log(carAdd, "Added ihsan");
   const getResult = useCallback(async () => {
     const token = await AsyncStorage.getItem("token");
     const headers = token ? { Authorization: `Token ${token}` } : {};
@@ -140,6 +143,7 @@ export const StateCarProvider = ({ children }) => {
       setProLoading(false);
       return;
     }
+
     const formData = new FormData();
     Object.entries(carAdd).forEach(([key, value]) => {
       if (key !== 'pictures') {
@@ -167,7 +171,6 @@ export const StateCarProvider = ({ children }) => {
         }
       });
     }
-    
     try {
       const response = await url.post('/cars/cars-posts/', formData, {
         headers: {
@@ -233,7 +236,6 @@ export const StateCarProvider = ({ children }) => {
     getParam();
     getCarRecomention();
   }, []);
-
   return (
     <StateCarContext.Provider
       value={{
