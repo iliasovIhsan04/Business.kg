@@ -30,7 +30,6 @@ region: { id: 1, name: "Чуйская область"},
   mileage: "",
   is_urgent: false,
   price: "",
-  price: "",
 };
 const initialFilterStateAdd = {
   car_condition: { id: 0, name: "Любой" },
