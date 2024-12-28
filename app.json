@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Business KG",
+    "slug": "bisness",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/app/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/app/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "The app needs access to your photos to let you share them.",
+        "NSCameraUsageDescription": "The app needs access to your camera to let you take photos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/app/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.bekaserkan.business",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/app/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "efb9d309-32c5-4019-bff9-733175153a87"
+      }
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos to let you share them.",
+          "cameraPermission": "The app needs access to your camera to let you take photos."
+        }
+      ]
+    ]
+  }
+}
